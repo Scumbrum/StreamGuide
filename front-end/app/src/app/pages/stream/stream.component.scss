@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .author-video {
+    height: 480px;
+    width: 640px;
+  }
+
+  .streamForm {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+  }
+
+  .date {
+    margin-top: 10px;
+  }
+}

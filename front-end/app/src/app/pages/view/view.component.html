@@ -1,0 +1,20 @@
+<ng-container *ngIf="stream">
+  <h1> {{ stream?.name }}</h1>
+  <div class="container">
+    <div *ngIf="!isPlaying" class="player loader-overlay" (click)="play()">
+      <mat-icon>play_arrow</mat-icon>
+    </div>
+
+    <div class="loader-overlay" (click)="stop()" *ngIf="loading">
+      <div class="loader"></div>
+    </div>
+
+    <canvas #canvas height="480" width="640" (click)="stop()">
+    </canvas>
+  </div>
+
+  <p class="date">Started at: {{ stream?.dateStart | date: 'dd.MM.YYYY HH:mm' }}</p>
+</ng-container>
+
+
+<h1 class="empty" *ngIf="!stream">Stream was ended</h1>

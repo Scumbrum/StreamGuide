@@ -1,0 +1,21 @@
+<div class="streamForm" *ngIf="!streamLive" [formGroup]="streamForm">
+  <h2>Stream creation</h2>
+  <p class="field">
+    <mat-form-field>
+      <mat-label>Stream name:</mat-label>
+      <input type="text" matInput formControlName="name">
+    </mat-form-field>
+  </p>
+  <button mat-raised-button color="primary" (click)="createStream()">Create stream</button>
+</div>
+
+<ng-container *ngIf="streamLive">
+  <h1>{{ streamData?.name }}</h1>
+  <video class="author-video" [muted]="true" autoplay [srcObject]="stream"></video>
+  <p class="date">Started at: {{ streamData?.dateStart | date: 'dd.MM.YYYY HH:mm' }}</p>
+  <div class="video-controls">
+    <button *ngIf="showStartButton" mat-raised-button color="primary" (click)="startRecording()">Start again</button>
+    <button *ngIf="streamLive && stream" mat-raised-button (click)="stopStream()">Stop stream</button>
+  </div>
+</ng-container>
+
